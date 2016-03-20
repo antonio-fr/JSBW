@@ -29,12 +29,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
   <p>Change address : <input type="text" id="chaddre"><a href="https://webqr.com/" target="_blank"><img id="scan" src="img/qrscan.png"></a>(optional)</p>
   <p>Text to write : <input type="text" id="textw"></p>
   <p>Enter the text you want to write in the blockchain.<br>Then sent any amount to the address provided (at least 16000 satoshi).<br>The script will automatically send the money back to you.</p>
-  <p><button type="button" id="gobut" onclick="GoProcess();">Go</button></p>
+  <p><button type="button" id="gobut">Go</button></p>
   <div id="qrcode"></div>
   <p id="disp">Enter Text and press Go</p>
   <p id="tx"></p>
-<script>
-	$( document ).ready(function() { $('#qrcode').hide(); });
-</script>
  </body>
 </html>

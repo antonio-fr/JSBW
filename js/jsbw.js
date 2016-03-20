@@ -133,4 +133,9 @@ function GoProcess(msg)
 		account = createaddr();
 		checkadr(account);
 	}
-}
+}$( document ).ready(function() { 
+	$('#qrcode').hide();
+	$('#gobut').click( function () {
+		GoProcess();
+	});
+});
