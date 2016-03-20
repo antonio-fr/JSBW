@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+JSBW : JavaScript Blockchain Writer
+Copyright (C) 2016  Antoine FERRON
+
+Write any string in the Bitcoin Blockchain using a simple web browser.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3 of the License.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>
+ -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/bitcore-lib.min.js"></script>
+  <script src="js/jquery-1.12.2.min.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/jsbw.js"></script>
+</head>
+<body>
+  <h1>JS Blockchain Writer</h1>
+  <p>Change address : <input type="text" id="chaddre"><a href="https://webqr.com/" target="_blank"><img id="scan" src="img/qrscan.png"></a>(optional)</p>
+  <p>Text to write : <input type="text" id="textw"></p>
+  <p>Enter the text you want to write in the blockchain.<br>Then sent any amount to the address provided (at least 16000 satoshi).<br>The script will automatically send the money back to you.</p>
+  <p><button type="button" id="gobut" onclick="GoProcess();">Go</button></p>
+  <div id="qrcode"></div>
+  <p id="disp">Enter Text and press Go</p>
+  <p id="tx"></p>
+<script>
+	$( document ).ready(function() { $('#qrcode').hide(); });
+</script>
+ </body>
+</html>
