@@ -89,7 +89,7 @@ function createaddr(){
 	$('#qrcode').show();
 	qrcode.makeCode("bitcoin:"+address);
 	console.log("Account for rcv created, address is "+address);
-	setTimeout(checkadr, 500, {'privateKey':privateKey,'address':address} );
+	setTimeout(checkadr, 250, {'privateKey':privateKey,'address':address} );
 }
 
 function signtransaction(account, utxo_input, txid, outid, destaddr){
@@ -128,7 +128,7 @@ function GoProcess(msg)
 	if ( $('#textw').val().length > 0 ){
 		$('#gobut').hide();
 		document.getElementById("disp").innerHTML = 'Please Wait';
-		setTimeout(createaddr, 500);
+		setTimeout(createaddr, 250);
 	}
 }
 
