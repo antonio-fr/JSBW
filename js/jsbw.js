@@ -18,6 +18,7 @@ function checkadr(account){
 	console.log("Wait for payment");
 	var payaddr = account.address.toString();
 	document.getElementById("disp").innerHTML = 'Waiting for payment<br><a href="bitcoin:'+payaddr+'">'+payaddr+'</a>';
+	window.scrollTo(0,document.body.scrollHeight);
 	$.ajax({
 		//url: "https://blockexplorer.com/api/addr/"+account.address.toString(),
 		url: "https://api.blockcypher.com/v1/btc/main/addrs/"+payaddr,
@@ -88,6 +89,7 @@ function createaddr(){
 	var qrcode = new QRCode("qrcode", {width: 160,height: 160, correctLevel : QRCode.CorrectLevel.M});
 	$('#qrcode').show();
 	qrcode.makeCode("bitcoin:"+address);
+	window.scrollTo(0,document.body.scrollHeight);
 	console.log("Account for rcv created, address is "+address);
 	setTimeout(checkadr, 250, {'privateKey':privateKey,'address':address} );
 }
@@ -112,6 +114,7 @@ function signtransaction(account, utxo_input, txid, outid, destaddr){
 		.done(function(srvrep){
 			document.getElementById("disp").innerHTML = "Transaction Sent";
 			document.getElementById("tx").innerHTML = 'Tx ID : <a href="https://www.blocktrail.com/BTC/tx/'+srvrep.tx.hash+'">'+srvrep.tx.hash+'</a>';
+			window.scrollTo(0,document.body.scrollHeight);
 		})
 		.fail(function(){document.getElementById("disp").innerHTML = "Transaction sending failed";});
 }
