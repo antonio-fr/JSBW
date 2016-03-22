@@ -1,10 +1,10 @@
 body{
 	font-family: "Arial", Arial, sans-serif;
 	font-size:   16px;
-	line-height: 1.5;
+	line-height: 1.3;
 }
 h1{
-	font-size:   28px;
+	font-size:   26px;
 	margin-left: 20px;
 }
 input{
@@ -24,6 +24,7 @@ button{
 	font:          normal 400 18px/1 "Open Sans", sans-serif;
 	text-align:    center;
 	text-shadow:   1px 1px 0 #f3f3f3;
+	margin-top:    15px;
 	margin-left:   35px;
 }
 #disp{
