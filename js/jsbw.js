@@ -112,11 +112,26 @@ function signtransaction(account, utxo_input, txid, outid, destaddr){
 	var pushtx = { tx: transaction.toString() };
 	$.post('https://api.blockcypher.com/v1/btc/main/txs/push', JSON.stringify(pushtx))
 		.done(function(srvrep){
-			document.getElementById("disp").innerHTML = "Transaction Sent";
-			document.getElementById("tx").innerHTML = 'Tx ID : <a href="https://www.blocktrail.com/BTC/tx/'+srvrep.tx.hash+'">'+srvrep.tx.hash+'</a>';
-			window.scrollTo(0,document.body.scrollHeight);
+			end(srvrep.tx.hash);
 		})
-		.fail(function(){document.getElementById("disp").innerHTML = "Transaction sending failed";});
+		.fail(function(){ document.getElementById("disp").innerHTML = "Transaction sending failed";
+						  end(""); }
+		);
+	end(txid);
+}
+
+function end(txid){
+	if (txid.length>0){
+		document.getElementById("disp").innerHTML = "Transaction Sent";
+		document.getElementById("tx").innerHTML = 'Tx ID : <a href="https://www.blocktrail.com/BTC/tx/'+txid+'">'+txid+'</a>';	
+	}
+	var backbtn = document.createElement("BUTTON");
+	var txtbut = document.createTextNode("Restart");
+	backbtn.appendChild(txtbut);
+	document.getElementById("tx").appendChild(backbtn);
+	backbtn.setAttribute("id", "backbutton");
+	window.scrollTo(0,document.body.scrollHeight);
+	$('#backbutton').click( function () { window.location.href='jsbw.html'; });;
 }
 
 function GoProcess(msg)
